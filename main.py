@@ -19,7 +19,7 @@ def message(msg):
         if msg1 == "close":
            sys.exit(0)
          
-        reply = session.think(msg1)
+        reply = session.think(msg1).replace(".","").lower()
         print("Bot - "+reply)
         
         msg.reply(reply).send()
