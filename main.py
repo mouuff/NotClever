@@ -19,10 +19,8 @@ def message(msg):
         print msg1
         if msg1 == "close":
            sys.exit(0)
-           
-        #ici ca fonctionne si on ne met un texte simple
-        msg.reply(bot1session.think(msg1)).send()
-        #msg.reply("merd").send()
+        
+        msg.reply(session.think(msg1)).send()
  
  
 
@@ -35,7 +33,7 @@ else:
     password = getpass.getpass("Please enter your password: ")
 
 try:
-	c = input("What would you use?\nPandorabot = 0 Cleverbot = 1\n0/1: ")
+	c = input("What would you use?\nPandorabot = 0\nJabberWacky = 1\nCleverbot = 2\n0/1/2: ")
 except:
 	c = 1
 
@@ -43,15 +41,19 @@ addr = ('chat.facebook.com', 5222)
 
 factory = ChatterBotFactory()
 
-if (c):
-	print("* Clerverbot selected *")
-	bot1 = factory.create(ChatterBotType.CLEVERBOT)
-else:
+if (!c):
 	print("* PandoraBots selected *")
-	bot1 = factory.create(ChatterBotType.PANDORABOTS, 'b0dafd24ee35a477')
+	bot = factory.create(ChatterBotType.PANDORABOTS, 'b0dafd24ee35a477')
+	
+elif(c==1):
+	print("* JabberWacky selected *")
+	bot = factory.create(ChatterBotType.JABBERWACKY)
+else:
+	print("* Clerverbot selected *")
+	bot = factory.create(ChatterBotType.CLEVERBOT)
 
 
-bot1session = bot1.create_session()
+session = bot.create_session()
 
 
 chatbot = sleekxmpp.ClientXMPP(jid,password)
