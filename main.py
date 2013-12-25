@@ -41,7 +41,7 @@ addr = ('chat.facebook.com', 5222)
 
 factory = ChatterBotFactory()
 
-if (!c):
+if (not c):
 	print("* PandoraBots selected *")
 	bot = factory.create(ChatterBotType.PANDORABOTS, 'b0dafd24ee35a477')
 	
