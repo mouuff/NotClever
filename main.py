@@ -15,12 +15,12 @@ def session_start(event):
 def message(msg):
     if msg['type'] in ('chat','normal'):
         msg1 = msg['body']
-        print("User "+msg["id"]+"\t - "+msg1)
+        print("User\t - "+msg1)
         if msg1 == "close":
            sys.exit(0)
          
         reply = session.think(msg1).replace(".","").lower()
-        print("Bot - "+reply)
+        print("Bot\t - "+reply)
         
         msg.reply(reply).send()
  
