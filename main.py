@@ -1,4 +1,4 @@
-import clientxmpp
+import sleekxmpp
 import logging
 import sys
 from chatterbotapi import ChatterBotFactory, ChatterBotType
@@ -54,7 +54,7 @@ else:
 bot1session = bot1.create_session()
 
 
-chatbot = clientxmpp.ClientXMPP(jid,password)
+chatbot = sleekxmpp.ClientXMPP(jid,password)
 chatbot.add_event_handler("session_start", session_start)
 chatbot.add_event_handler("message", message)
 
