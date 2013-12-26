@@ -5,7 +5,9 @@ this works using:
 - PandoraBot
 
 Steps to install:
+
 1. Download python 2.7.6 http://www.python.org/download/releases/2.7.6/
+
 2. Download this project and launch main.py
 
 
