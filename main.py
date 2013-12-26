@@ -19,8 +19,8 @@ def message(msg):
         if msg1 == "close":
            sys.exit(0)
         if (not logged):
-			session = bot.create_session()
-			logged = True
+            session = bot.create_session()
+            logged = True
         reply = session.think(msg1).replace(".","").lower()
         print("Bot\t - "+reply)
         
@@ -38,24 +38,24 @@ else:
     password = getpass.getpass("Please enter your password: ")
 
 try:
-	c = input("What would you use?\nPandorabot = 0\nJabberWacky = 1\nCleverbot = 2\n0/1/2: ")
+    c = input("What would you use?\nPandorabot = 0\nJabberWacky = 1\nCleverbot = 2\n0/1/2: ")
 except:
-	c = 1
+    c = 1
 
 addr = ('chat.facebook.com', 5222)
 
 factory = ChatterBotFactory()
 
 if (not c):
-	print("* PandoraBots selected *")
-	bot = factory.create(ChatterBotType.PANDORABOTS, 'b0dafd24ee35a477')
-	
+    print("* PandoraBots selected *")
+    bot = factory.create(ChatterBotType.PANDORABOTS, 'b0dafd24ee35a477')
+    
 elif(c==1):
-	print("* JabberWacky selected *")
-	bot = factory.create(ChatterBotType.JABBERWACKY)
+    print("* JabberWacky selected *")
+    bot = factory.create(ChatterBotType.JABBERWACKY)
 else:
-	print("* Clerverbot selected *")
-	bot = factory.create(ChatterBotType.CLEVERBOT)
+    print("* Clerverbot selected *")
+    bot = factory.create(ChatterBotType.CLEVERBOT)
 
 
 
