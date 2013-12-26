@@ -18,13 +18,16 @@ def message(msg):
         print("User\t - "+msg1)
         if msg1 == "close":
            sys.exit(0)
-         
+        if (not logged):
+			session = bot.create_session()
+			logged = True
         reply = session.think(msg1).replace(".","").lower()
         print("Bot\t - "+reply)
         
         msg.reply(reply).send()
  
  
+logged = False
 
 jid = raw_input("Enter your facebook id: ") + '@chat.facebook.com'
 if any('SPYDER' in name for name in os.environ) \
@@ -54,8 +57,6 @@ else:
 	print("* Clerverbot selected *")
 	bot = factory.create(ChatterBotType.CLEVERBOT)
 
-
-session = bot.create_session()
 
 
 chatbot = sleekxmpp.ClientXMPP(jid,password)
