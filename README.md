@@ -4,5 +4,7 @@ this works using:
 - JabberWacky
 - PandoraBot
 
-YOU NEED SLEEKXMPP LIB TO MAKE IT WORK!
-download it here: https://github.com/fritzy/SleekXMPP/releases/tag/1.1.11
+Project made in thanks of:
+- sleekxmpp     https://github.com/fritzy/SleekXMPP
+- chatterbotapi https://github.com/Schumix/ChatterBotApi
+- me obvioulsy ;)
