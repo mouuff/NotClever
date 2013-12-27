@@ -21,7 +21,6 @@ def message(msg):
         print(getNameByAddress(str(msg['from']))+"\t- "+msg1)
         if msg1 == "close":
            sys.exit(0)
-        session = bot.create_session()
         reply = session.think(msg1).replace(".","").lower()
         print("Not Clever\t- "+reply)
         
@@ -55,6 +54,7 @@ else:
     print("* Clerverbot selected *")
     bot = factory.create(ChatterBotType.CLEVERBOT)
 
+session = bot.create_session()
 
 
 chatbot = sleekxmpp.ClientXMPP(jid,password)
