@@ -6,9 +6,11 @@ import os
 import getpass
 import facebook
 
+global ids
+
 def getNameByAddress(address):
-	id = address.replace("-","").split("@")[0]
-	return facebook.GraphAPI().get_object(id)['name']
+    id = address.replace("-","").split("@")[0]
+    return facebook.GraphAPI().get_object(id)['name']
  
 def session_start(event):
     chatbot.send_presence()
@@ -18,13 +20,21 @@ def session_start(event):
 def message(msg):
     if msg['type'] in ('chat','normal'):
         msg1 = msg['body']
-        print(getNameByAddress(str(msg['from']))+"\t- "+msg1)
-        if msg1 == "close":
-           sys.exit(0)
+        address = str(msg['from'])
+        
+        if (address in ids):
+            name = ids[address]
+        else:
+            name = getNameByAddress(address)
+            ids[address] = name
+            
+        
+        print(name+"\t- "+msg1)
         reply = session.think(msg1).replace(".","").lower()
         print("Not Clever\t- "+reply)
-        
         msg.reply(reply).send()
+        
+ids = {}
 
 jid = raw_input("Enter your facebook id: ") + '@chat.facebook.com'
 if any('SPYDER' in name for name in os.environ) \
