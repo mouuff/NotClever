@@ -14,4 +14,5 @@ Steps to install:
 Project made in thanks of:
 - sleekxmpp     https://github.com/fritzy/SleekXMPP
 - chatterbotapi https://github.com/Schumix/ChatterBotApi
+- Facebook Graph api
 - me obvioulsy ;)
