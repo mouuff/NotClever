@@ -4,9 +4,11 @@ import sys
 from chatterbotapi import ChatterBotFactory, ChatterBotType
 import os
 import getpass
+import facebook
 
-
-#import dnspython
+def getNameByAddress(address):
+	id = address.replace("-","").split("@")[0]
+	return facebook.GraphAPI().get_object(id)['name']
  
 def session_start(event):
     chatbot.send_presence()
@@ -16,12 +18,12 @@ def session_start(event):
 def message(msg):
     if msg['type'] in ('chat','normal'):
         msg1 = msg['body']
-        print("User\t - "+msg1)
+        print(getNameByAddress(str(msg['from']))+"\t- "+msg1)
         if msg1 == "close":
            sys.exit(0)
         session = bot.create_session()
         reply = session.think(msg1).replace(".","").lower()
-        print("Bot\t - "+reply)
+        print("Not Clever\t- "+reply)
         
         msg.reply(reply).send()
 
