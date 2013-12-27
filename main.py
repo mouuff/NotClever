@@ -10,7 +10,11 @@ global ids
 
 def getNameByAddress(address):
     id = address.replace("-","").split("@")[0]
-    return facebook.GraphAPI().get_object(id)['name']
+    try:
+        name = facebook.GraphAPI().get_object(id)['name']
+    except facebook.GraphAPIError:
+        name = "User"
+    return name
  
 def session_start(event):
     chatbot.send_presence()
