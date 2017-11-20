@@ -11,8 +11,7 @@ Steps to install:
 2. Download this project and launch main.py
 
 
-Project made in thanks of:
+Project made thanks to:
 - sleekxmpp     https://github.com/fritzy/SleekXMPP
 - chatterbotapi https://github.com/Schumix/ChatterBotApi
 - Facebook Graph api
-- me obvioulsy ;)
